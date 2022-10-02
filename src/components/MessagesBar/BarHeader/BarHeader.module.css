@@ -1,0 +1,77 @@
+.wrap{
+    height: 110px;
+    display: flex;
+    vertical-align: middle;
+    background: #FAFBFF;
+    font-family: 'Roboto';
+    font-style: normal;
+    border-bottom: 2px solid rgba(112, 124, 151, 0.1);
+    border-top-left-radius: 6px;
+    border-top-left-radius: 6px;
+}
+
+.head{
+    position: relative;
+    display: flex;
+    padding: 28px 60px;
+}
+
+.head img{
+    margin: auto;
+    margin-right: 20px;
+    width: 54px;
+    height: 54px;
+    cursor: pointer;
+}
+
+.infoBlock{
+    width: 676px; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.info{
+    margin: auto 0;
+}
+
+.info h1{
+    margin: 0;
+    margin-bottom: 6px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: #0D1C2E;
+    cursor: pointer;
+}
+
+.info p{
+    margin: 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #2A8BF2;
+}
+
+.headBtns{
+    margin: auto 0;
+}
+
+.headBtns button{
+    border: none;
+    border-radius: 100%;
+    font: inherit;
+    background: #FFFFFF;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03), 0px 7px 25px rgba(42, 139, 242, 0.03), 0px 5px 25px rgba(42, 139, 242, 0.07);
+    cursor: pointer;
+}
+
+.headBtns button{
+    margin-left: 20px;
+}
+
+.headBtns button img{
+    margin: auto;
+    padding: 10px;
+    width: 24px;
+    height: 24px;
+}

@@ -1,0 +1,22 @@
+.item{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.2em;
+    color: #0D1C2E;
+}
+
+.icon{
+    display: flex;
+    margin: auto;
+    margin-top: 92px;
+    width: 86px;
+    height: 86px;
+}
+
+.name{
+    margin-top: 11px;
+    margin-bottom: 88px;
+}

@@ -1,0 +1,25 @@
+.search{
+    width: 525px;
+    height: 70px;
+    padding-left: 75px;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    color: black;
+
+    background-image: url("../../../public/assets/search.svg");
+    background-repeat: no-repeat;
+    background-position: 5% 50%;
+}
+
+.search:focus{
+    outline: none;
+}
+
+.search::placeholder{
+    color: #707C97;      
+}

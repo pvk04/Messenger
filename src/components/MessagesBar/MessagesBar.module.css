@@ -1,0 +1,10 @@
+.module{
+    display: flex;
+    flex-direction: column;
+    width: 850px;
+    margin-top: 110px;
+    margin-left: 70px;
+    margin-bottom: 40px;
+    background: white;
+    border-radius: 6px;
+}

@@ -1,0 +1,29 @@
+.module{
+    width: 600px;
+    margin-top: 109px;
+    margin-left: 59px;
+}
+
+.list {
+    height: calc(100vh - 289px);
+    padding: 0;
+    margin-top: 20px;
+    border-radius: 6px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.list::-webkit-scrollbar{
+    background: none;
+    width: 6px;
+}
+
+.list::-webkit-scrollbar-thumb{
+    background: #B7BDCB;
+    border-radius: 10px;
+}
+
+.listItem {
+    list-style-type: none;
+    margin-bottom: 20px;
+}

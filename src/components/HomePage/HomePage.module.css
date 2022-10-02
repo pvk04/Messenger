@@ -1,0 +1,18 @@
+.module{
+    margin: 110px 50px 40px 350px;
+}
+
+.wrap{
+    display: flex;
+    height: 800px;
+    background: white;
+}
+
+.wrap header{
+    margin: auto;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 26px;
+}
