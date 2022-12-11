@@ -1,42 +1,62 @@
 import React from "react";
+import { AppContext } from "../../../context/context";
+import formatDate from "../../../utils/formatDate.util";
 
-// import styles from "./MessageArea.module.css";
+import styles from "./MessageArea.module.css";
 
 function MessageArea({ messages }) {
-
-	function formatDate(date) {
-		const now = new Date();
-		date = new Date(date);
-		const diffMin = Math.round((now.getTime() - date.getTime()) / 60000);
-		switch (true) {
-			case diffMin < 1:
-				return `now`;
-			case diffMin < 60:
-				return `${diffMin} minutes ago`;
-			case diffMin / 1440 < 1:
-				return `${Math.round(diffMin / 60)} hours ago`;
-			case diffMin / 10080 < 1:
-				return `${Math.round(diffMin / 1440)} days ago`;
-			case diffMin / 43800 < 1:
-				return `${Math.round(diffMin / 10080)} weeks ago`;
-			case diffMin / 525600 < 1:
-				return `${Math.round(diffMin / 43800)} month ago`;
-			default:
-				return `${Math.round(diffMin / 525600)} years ago`;
-		}
-	}
+	const [{ accountId }] = React.useContext(AppContext);
 
 	return (
-		<div>
-			<ul>
+		<div className={styles.wrap}>
+			<ul className={styles.list}>
 				{messages.map(
 					({ messageId, senderId, content, createAt, isViewed }) => {
+						let isMyMes = true;
+						if (senderId !== accountId) isMyMes = false;
 						return (
-							<li key={messageId}>
-								<div>
-									<p>{content}</p>
-									<span>{formatDate(createAt)}</span>
+							<li
+								key={messageId}
+								className={
+									isMyMes
+										? styles.container
+										: `${styles.container} ${styles.other_container}`
+								}
+							>
+								<div
+									className={
+										isMyMes
+											? `${styles.content_wrap} ${
+													styles.more_my
+											  } ${
+													isViewed
+														? styles.viewed
+														: styles.notViewed
+											  }`
+											: `${styles.content_wrap} ${styles.more_other}`
+									}
+								>
+									<div
+										className={
+											isMyMes
+												? `${styles.content} ${styles.my}`
+												: `${styles.content} ${styles.other}`
+										}
+									>
+										<p className={styles.content_body}>
+											{content}
+										</p>
+									</div>
 								</div>
+								<span
+									className={
+										isMyMes
+											? styles.date_msg
+											: `${styles.date_msg} ${styles.other_date}`
+									}
+								>
+									{formatDate(createAt)}
+								</span>
 							</li>
 						);
 					}

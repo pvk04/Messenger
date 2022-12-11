@@ -1,26 +1,30 @@
 import React from "react";
 import SmileyModal from "../../SmileyModal/SmileyModal";
 import ButtonsAttachModal from "../../ButtonsAttachModal/ButtonsAttachModal";
+import postNewMessage from "../../../fetches/postNewMessage.fetch.js";
 
 import styles from "./MessageInput.module.css";
+import { AppContext } from "../../../context/context";
 
-function MessageInput({ messages, newMessage, chatId }) {
+function MessageInput({ newMessage, chatId }) {
+	const [{ accountId, personId }] = React.useContext(AppContext);
 	const [modalSmileyActive, setModalSmileyActive] = React.useState(false);
 	const [modalBtnsActive, setModalBtnsActive] = React.useState(false);
 	const [messageText, setMessageText] = React.useState("");
 
 	function addMessage() {
-		console.log("message", messageText);
 		if (messageText.trim().length > 0) {
 			const message = {
 				chatId,
-				messageId: 0,
-				senderId: 0,
+				messageId: Math.random(),
+				senderId: accountId,
+				recieverId: personId,
 				content: messageText,
 				createAt: new Date(),
 				isViewed: false,
 			};
 
+			postNewMessage(chatId, message);
 			setMessageText("");
 			newMessage(message);
 		}
@@ -51,6 +55,9 @@ function MessageInput({ messages, newMessage, chatId }) {
 					value={messageText}
 					onChange={(e) => {
 						setMessageText(e.target.value);
+					}}
+					onKeyDown={(e) => {
+						if (e.key === "Enter") addMessage();
 					}}
 				/>
 				<button
