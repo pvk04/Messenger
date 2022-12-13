@@ -7,7 +7,7 @@ import styles from "./MessageInput.module.css";
 import { AppContext } from "../../../context/context";
 
 function MessageInput({ newMessage, chatId }) {
-	const [{ accountId, personId }] = React.useContext(AppContext);
+	const [{ accountId, personId }, dispatch] = React.useContext(AppContext);
 	const [modalSmileyActive, setModalSmileyActive] = React.useState(false);
 	const [modalBtnsActive, setModalBtnsActive] = React.useState(false);
 	const [messageText, setMessageText] = React.useState("");
@@ -27,6 +27,7 @@ function MessageInput({ newMessage, chatId }) {
 			postNewMessage(chatId, message);
 			setMessageText("");
 			newMessage(message);
+			dispatch({ type: "ACTION" });
 		}
 	}
 

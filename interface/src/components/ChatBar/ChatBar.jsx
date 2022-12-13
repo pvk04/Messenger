@@ -11,7 +11,7 @@ import getPersonInfo from "../../fetches/getPersonInfo.fetch";
 import { AppContext } from "../../context/context";
 
 function ChatBar() {
-	const [{ accountId }] = React.useContext(AppContext);
+	const [{ accountId, action }] = React.useContext(AppContext);
 	const [chats, setChats] = React.useState([]);
 
 	React.useEffect(() => {
@@ -39,7 +39,7 @@ function ChatBar() {
 			}
 		}
 		getData();
-	}, [accountId]);
+	}, [accountId, action]);
 
 	return (
 		<div className={styles.module}>

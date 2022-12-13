@@ -30,7 +30,7 @@ async function unreadCount(chatId, personId) {
 
 async function getChats(personId) {
 	let [response] = await connection.query(
-		`select * from messages as mm where senderId = ${personId} or recieverId = ${personId} and messageId = (select max(messageId) from messages where chatId = mm.chatId) group by chatId`
+		`select * from messages as mm where (senderId = ${personId} or recieverId = ${personId}) and messageId = (select messageId from messages where chatId = mm.chatId order by messageId desc limit 1) group by chatId`
 	);
 	return response;
 }
